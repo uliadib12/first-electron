@@ -12,3 +12,8 @@ const createWindow = () => {
   app.whenReady().then(() => {
     createWindow()
   })
+
+  // Quit the app when all windows are closed
+  app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') app.quit()
+  })
